@@ -7,6 +7,15 @@ public class BitSet {
 
     public BitSet() {
         this.maxNum = (long) Integer.MAX_VALUE + 1;
+        this.init();
+    }
+
+    public BitSet(int maxNum) {
+        this.maxNum = maxNum;
+        this.init();
+    }
+
+    private void init() {
         this.bitValueArray = new long[(int) (this.maxNum / 64)];
 
         this.shiftArray = new long[64];
