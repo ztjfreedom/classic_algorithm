@@ -1,6 +1,6 @@
 package graph.mst;
 
-import common.AdjacencyMatrix;
+import graph.common.AdjacencyMatrix;
 
 import java.util.Arrays;
 import java.util.Comparator;

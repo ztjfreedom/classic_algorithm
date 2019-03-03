@@ -1,4 +1,4 @@
-package common;
+package graph.common;
 
 /*
  * 无向图 Undirected Graph 邻接矩阵 Adjacency Matrix
