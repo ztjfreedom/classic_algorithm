@@ -1,4 +1,4 @@
-package others.multithread.synchronization;
+package jdk.multithread.synchronization;
 
 import java.util.HashMap;
 import java.util.Map;

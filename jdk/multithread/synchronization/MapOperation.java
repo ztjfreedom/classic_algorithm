@@ -1,4 +1,4 @@
-package others.multithread.synchronization;
+package jdk.multithread.synchronization;
 
 import java.util.Map;
 import java.util.concurrent.locks.Lock;

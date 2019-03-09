@@ -1,4 +1,4 @@
-package others.multithread.parameter;
+package jdk.multithread.parameter;
 
 // Extends Thread
 public class ExtThread extends Thread {

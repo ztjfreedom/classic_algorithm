@@ -1,4 +1,4 @@
-package others.multithread.parameter;
+package jdk.multithread.parameter;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

@@ -1,4 +1,4 @@
-package others.hashmap;
+package jdk.common;
 
 public class Person {
 

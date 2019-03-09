@@ -1,11 +1,13 @@
-package others.hashmap;
+package jdk.hashmap;
+
+import jdk.common.Person;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class PersonTest {
+public class HashMapTest {
 
     public static void main(String[] args) {
         Person p1 = new Person(10, "Tom");
@@ -17,6 +19,8 @@ public class PersonTest {
         list.add(p2);
         list.add(p3);
 
+        // Use custom class as key
+        // Override equals() and hashCode() methods in the class
         Map<Person, Integer> map = new HashMap<>();
         for (Person p : list) {
             map.put(p, map.getOrDefault(p, 0) + 1);

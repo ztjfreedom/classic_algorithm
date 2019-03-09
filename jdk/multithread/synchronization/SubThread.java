@@ -1,4 +1,4 @@
-package others.multithread.synchronization;
+package jdk.multithread.synchronization;
 
 public class SubThread implements Runnable {
 
