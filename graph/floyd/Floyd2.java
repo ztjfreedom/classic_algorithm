@@ -1,6 +1,6 @@
 package graph.floyd;
 
-import graph.common.AdjacencyList;
+import graph.adjacency.AdjacencyList;
 
 public class Floyd2 {
 

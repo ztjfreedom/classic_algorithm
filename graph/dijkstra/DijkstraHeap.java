@@ -7,36 +7,31 @@ import java.util.PriorityQueue;
 
 public class DijkstraHeap {
 
-    public static class NodeDistance {
-        public String node;
-        public Integer distance;
-        public NodeDistance(String node, int distance) {
-            this.node = node;
-            this.distance = distance;
-        }
-    }
+    public static void main(String[] args) {
+        Map<String, Map<String, Integer>> graph = new HashMap<>();
+        addEdge(graph, "A", "B", 12);
+        addEdge(graph, "A", "F", 16);
+        addEdge(graph, "A", "G", 14);
+        addEdge(graph, "B", "C", 10);
+        addEdge(graph, "B", "F", 7);
+        addEdge(graph, "G", "F", 9);
+        addEdge(graph, "G", "E", 8);
+        addEdge(graph, "F", "C", 6);
+        addEdge(graph, "F", "E", 2);
+        addEdge(graph, "C", "E", 5);
+        addEdge(graph, "C", "D", 3);
+        addEdge(graph, "E", "D", 4);
 
-    public static void addEdge(Map<String, Map<String, Integer>> graph, String start, String end, int distance) {
-        if (!graph.containsKey(start)) graph.put(start, new HashMap<>());
-        if (!graph.containsKey(end)) graph.put(end, new HashMap<>());
-        graph.get(start).put(end, distance);
-        graph.get(end).put(start, distance);
+        System.out.println(dijkstra(graph, "D", "A"));
     }
 
     public static int dijkstra(Map<String, Map<String, Integer>> graph, String start, String end) {
         if (!graph.containsKey(start) || !graph.containsKey(end)) return -1;
 
-        // Set<String> finished = new HashSet<>();
         Map<String, NodeDistance> map = new HashMap<>();
-        PriorityQueue<NodeDistance> pq = new PriorityQueue<>(new Comparator<NodeDistance>() {
-            @Override
-            public int compare(NodeDistance o1, NodeDistance o2) {
-                return o1.distance.compareTo(o2.distance);
-            }
-        });
+        PriorityQueue<NodeDistance> pq = new PriorityQueue<>(Comparator.comparing(o -> o.distance));
 
         // start node
-        // finished.add(start);
         for (Map.Entry<String, Integer> entry : graph.get(start).entrySet()) {
             NodeDistance nd = new NodeDistance(entry.getKey(), entry.getValue());
             map.put(entry.getKey(), nd);
@@ -67,22 +62,20 @@ public class DijkstraHeap {
         return -1;
     }
 
-    public static void main(String[] args) {
-        Map<String, Map<String, Integer>> graph = new HashMap<>();
-        addEdge(graph, "A", "B", 12);
-        addEdge(graph, "A", "F", 16);
-        addEdge(graph, "A", "G", 14);
-        addEdge(graph, "B", "C", 10);
-        addEdge(graph, "B", "F", 7);
-        addEdge(graph, "G", "F", 9);
-        addEdge(graph, "G", "E", 8);
-        addEdge(graph, "F", "C", 6);
-        addEdge(graph, "F", "E", 2);
-        addEdge(graph, "C", "E", 5);
-        addEdge(graph, "C", "D", 3);
-        addEdge(graph, "E", "D", 4);
+    public static void addEdge(Map<String, Map<String, Integer>> graph, String start, String end, int distance) {
+        if (!graph.containsKey(start)) graph.put(start, new HashMap<>());
+        if (!graph.containsKey(end)) graph.put(end, new HashMap<>());
+        graph.get(start).put(end, distance);
+        graph.get(end).put(start, distance);
+    }
 
-        System.out.println(dijkstra(graph, "D", "A"));
+    public static class NodeDistance {
+        public String node;
+        public Integer distance;
+        public NodeDistance(String node, int distance) {
+            this.node = node;
+            this.distance = distance;
+        }
     }
 
 }

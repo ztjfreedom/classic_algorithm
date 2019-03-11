@@ -7,14 +7,25 @@ import java.util.Set;
 
 public class Dijkstra {
 
-    public static void addEdge(Map<String, Map<String, Integer>> graph, String start, String end, int distance) {
-        if (!graph.containsKey(start)) graph.put(start, new HashMap<>());
-        if (!graph.containsKey(end)) graph.put(end, new HashMap<>());
-        graph.get(start).put(end, distance);
-        graph.get(end).put(start, distance);
+    public static void main(String[] args) {
+        Map<String, Map<String, Integer>> graph = new HashMap<>();
+        addEdge(graph, "A", "B", 12);
+        addEdge(graph, "A", "F", 16);
+        addEdge(graph, "A", "G", 14);
+        addEdge(graph, "B", "C", 10);
+        addEdge(graph, "B", "F", 7);
+        addEdge(graph, "G", "F", 9);
+        addEdge(graph, "G", "E", 8);
+        addEdge(graph, "F", "C", 6);
+        addEdge(graph, "F", "E", 2);
+        addEdge(graph, "C", "E", 5);
+        addEdge(graph, "C", "D", 3);
+        addEdge(graph, "E", "D", 4);
+
+        System.out.println(dijkstra(graph, "D", "A"));
     }
 
-    public static int minDistance(Map<String, Map<String, Integer>> graph, String start, String end) {
+    public static int dijkstra(Map<String, Map<String, Integer>> graph, String start, String end) {
         if (!graph.containsKey(start) || !graph.containsKey(end)) return -1;
 
         Set<String> finished = new HashSet<>();
@@ -56,22 +67,11 @@ public class Dijkstra {
         return -1;
     }
 
-    public static void main(String[] args) {
-        Map<String, Map<String, Integer>> graph = new HashMap<>();
-        addEdge(graph, "A", "B", 12);
-        addEdge(graph, "A", "F", 16);
-        addEdge(graph, "A", "G", 14);
-        addEdge(graph, "B", "C", 10);
-        addEdge(graph, "B", "F", 7);
-        addEdge(graph, "G", "F", 9);
-        addEdge(graph, "G", "E", 8);
-        addEdge(graph, "F", "C", 6);
-        addEdge(graph, "F", "E", 2);
-        addEdge(graph, "C", "E", 5);
-        addEdge(graph, "C", "D", 3);
-        addEdge(graph, "E", "D", 4);
-
-        System.out.println(minDistance(graph, "D", "A"));
+    public static void addEdge(Map<String, Map<String, Integer>> graph, String start, String end, int distance) {
+        if (!graph.containsKey(start)) graph.put(start, new HashMap<>());
+        if (!graph.containsKey(end)) graph.put(end, new HashMap<>());
+        graph.get(start).put(end, distance);
+        graph.get(end).put(start, distance);
     }
 
 }

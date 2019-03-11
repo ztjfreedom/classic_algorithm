@@ -1,4 +1,4 @@
-package graph.common;
+package graph.adjacency;
 
 public class AdjacencyList {
 
@@ -25,7 +25,7 @@ public class AdjacencyList {
      *
      * 参数说明：
      *     vexs  -- 顶点数组
-     *     edges -- 边
+     *     edgesList -- 边
      */
     public AdjacencyList(char[] vexs, EData[] edges) {
 
