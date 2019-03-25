@@ -39,8 +39,6 @@ public class UnrolledLinkedList<T> {
         NodeAndIndex nodeAndIdx = convertIdxInList2IdxInNode(index);
 
         return (T) nodeAndIdx.node.elements[nodeAndIdx.index];
-
-//        return (T) node.elements[index - pos];
     }
 
     public void insert(T element) {
