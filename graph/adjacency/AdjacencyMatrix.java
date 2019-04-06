@@ -129,7 +129,7 @@ public class AdjacencyMatrix {
      */
     private void dfs() {
         boolean[] visited = new boolean[vertices.length];  // 顶点访问标记
-        System.out.print("dfs: ");
+        System.out.print("dfsbfs: ");
         for (int i = 0; i < vertices.length; i++) {
             if (!visited[i])
                 dfs(i, visited);
