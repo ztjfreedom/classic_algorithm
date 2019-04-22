@@ -1,6 +1,6 @@
 package sort.quicksort;
 
-public class QuickSort1 {
+public class QuickSort {
 
 
     public static void main(String[] args) {
@@ -32,9 +32,9 @@ public class QuickSort1 {
     private static int partition(int[] arr, int start, int end) {
         int key = arr[start];
         while (start < end) {
-            while (arr[end] >= key && end > start) end--;
+            while (arr[end] >= key && end > start) end --;
             arr[start] = arr[end];
-            while (arr[start] <= key && end > start) start++;
+            while (arr[start] <= key && end > start) start ++;
             arr[end] = arr[start];
         }
         arr[start] = key;
