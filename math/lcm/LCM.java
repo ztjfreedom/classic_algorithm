@@ -18,7 +18,7 @@ public class LCM {
         if (array == null || array.length == 0) throw new Exception();
 
         long lcm = array[0];
-        for (int i=2; i<array.length; i++) {
+        for (int i=1; i<array.length; i++) {
             lcm = getLCM(lcm, array[i]);
         }
         return lcm;
@@ -35,7 +35,7 @@ public class LCM {
         if (array == null || array.length == 0) throw new Exception();
 
         long lcm = array[0];
-        for (int i=2; i<array.length; i++) {
+        for (int i=1; i<array.length; i++) {
             lcm = getLCM(lcm, array[i], max);
             if (lcm == OVERFLOW) return OVERFLOW;
         }
